@@ -1,0 +1,12 @@
+{# Commands required by the Brick Abode team #}
+set system scripts language python
+set system services ssh root-login allow
+set system services netconf ssh
+set system services rest http port 3000
+set system services rest enable-explorer
+{# Change the banner message #}
+set system login message "{{ banner_message }}"
+{# Create the users defined in the YML file #}
+{% for user in users %}
+set system login user {{ user.name }}{% if user.admin %} class super-user{% else %} class read-only{% endif %}{% if 'password' in user %} authentication encrypted-password {{ user.password }}{% endif %}
+{% endfor %}

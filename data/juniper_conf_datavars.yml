@@ -1,0 +1,5 @@
+---
+
+rest_http_port: 13000
+netconf_list:
+  - 'ssh'

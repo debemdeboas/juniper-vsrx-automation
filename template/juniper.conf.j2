@@ -1,0 +1,30 @@
+system {
+    scripts {
+        language python;
+    }
+    services {
+        ssh {
+            root-login allow;
+        }
+        netconf {
+            {%- for service in netconf_list %}
+            {{ service }};
+            {%- endfor %}
+        }
+        rest {
+            http {
+                port {{ rest_http_port}};
+            }
+            enable-explorer;
+        }
+        web-management {
+            http {
+                interface fxp0.0;
+            }
+            https {
+                system-generated-certificate;
+                interface fxp0.0;
+            }
+        }
+    }
+}

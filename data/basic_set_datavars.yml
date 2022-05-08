@@ -1,0 +1,17 @@
+---
+
+# Banner message
+banner_message: '\
+-------------------------------------------\n\
+WARNING: Unauthorized access is prohibited.\n\
+-------------------------------------------\n\n\
+Juniper vSRX device managed by @debemdeboas'
+
+# Users that will be created
+users:
+  - name: user
+    admin: no
+    # This needs to be an MD5-encrypted string literal 
+    password: '$6$w8B1Butc$cvdJ9MYPue3fkHEqqgpLopaZLr4ireoXdHEwGcsHoIkj3932KGOZOu7s37Dx03iTcA4h3Chy9ynZ4oCucm6N/0'  
+  - name: admin
+    admin: yes
